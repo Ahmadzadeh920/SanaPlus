@@ -1,0 +1,77 @@
+{% extends "template.html"%}
+{% load staticfiles %}
+
+{% block content %}
+
+
+
+
+
+  {% if message %}
+  <div class="bs-callout bs-callout-info">
+    <h5>{{ message }}</h5>
+  </div>
+  {% endif %}
+
+
+
+<div class="row">
+
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Sana_Plus</h3>
+        </div>
+        <div class="panel-body">
+
+
+<p>
+{{ massage_logout }}
+
+</p>
+
+<p>
+{% if user.is_authenticated %}
+         {% if  user.is_staff%}
+           <!-- <p><a href="{% url 'add_user' %}">مدیریت کاربران </a></p>-->
+            <p>
+
+                {% if user.is_superuser %}
+                    <p><a href="{% url 'add_admin' %}">اضافه کردن ادمین سایت  </a></p>
+
+                  {% endif %}
+            {% endif %}
+        <a href="{% url 'Create_Apps' %}">مدیریت اپلیکشن </a>
+    {% endif %}
+
+            </p>
+</a>
+
+
+</div>
+    <div>
+     <p>{{ massage }}</p>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+{% block footer %}
+
+
+{% endblock %}

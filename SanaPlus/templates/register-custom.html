@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+{% extends "template.html"%}
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% block content %}
+        {{ context }}
+    <form  method="POST" action="{% url 'register' %}">
+            {% csrf_token %}
+            <input type="hidden" name="RequestCode" value="True">
+            <div class="form-group">
+              <label for="username" class="col-sm-2 control-label" >نام </label>
+              <div class="col-sm-10">
+                <input type="text" name="user_name" class="form-control" placeholder="حداقل سه کاراکتر" required pattern=".{3,}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword3" class="col-sm-2 control-label">ایمیل شما</label>
+              <div class="col-sm-10">
+                <input type="email" name="email" class="form-control"  placeholder="لینک تایید ساخت اکانت به این آدرس فرستاده می‌شود" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword3" class="col-sm-2 control-label" >کلمه عبور</label>
+              <div class="col-sm-10">
+                <input type="password" name="password" class="form-control"  placeholder="حداقل پنج کاراکتر" required pattern=".{5,}">
+              </div>
+            </div>
+             <div class="form-group">
+              <label for="inputPassword3" class="col-sm-2 control-label" >تاریخ تولد</label>
+              <div class="col-sm-10">تاریخ تولد
+                <input type="date"  name="date" required="required">
+              </div>
+            </div>
+             <div class="form-group">
+              <div class="col-sm-10">
+                <input type="submit" name="submit" class="form-control"  value="ثبت نام">
+              </div>
+            </div>
+
+
+
+          </form>
+    {% endblock %}
+</body>
+</html>

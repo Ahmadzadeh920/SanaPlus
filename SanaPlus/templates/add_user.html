@@ -1,0 +1,117 @@
+{% extends "template.html"%}
+{% load staticfiles %}
+
+{% block content %}
+
+
+
+
+
+  {% if message %}
+  <div class="bs-callout bs-callout-info">
+    <h5>{{ message|safe }}</h5>
+  </div>
+  {% endif %}
+
+
+
+<div class="row">
+
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Sana_Plus</h3>
+        </div>
+        <div class="panel-body">
+
+
+<p>
+{{ massage }}
+
+</p>
+
+    {% if not user.is_superuser and user.is_staff %}
+         <form class="form-horizontal" method="POST" action="{% url 'add_user' %}">
+    {% elif user.is_superuser and user.is_staff %}
+        <form class="form-horizontal" method="POST" action="{% url 'add_admin' %}">
+    {% endif %}
+            {% csrf_token %}
+            <input type="hidden" name="requestcode" value="True" />
+            <input type="hidden" name="next" value="{{ next }}" />
+            <div class="form-group">
+              <label for="username" class="col-sm-2 control-label" >نام کاربری</label>
+              <div class="col-sm-10">
+                <input type="text" name="username" class="form-control" placeholder="حداقل سه کاراکتر" required pattern=".{3,}">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputPassword3" class="col-sm-2 control-label">ایمیل کاربر</label>
+              <div class="col-sm-10">
+                <input type="email" name="email" class="form-control"  placeholder="لینک تایید ساخت اکانت به این آدرس فرستاده می‌شود" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword3" class="col-sm-2 control-label" >کلمه عبور</label>
+              <div class="col-sm-10">
+                <input type="password" name="password" class="form-control"  placeholder="حداقل پنج کاراکتر" required pattern=".{5,}">
+              </div>
+            </div>
+              <div class="form-group">
+              <label for="inputPassword3" class="col-sm-2 control-label" > کلمه عبور را مجدد وارد نمایید</label>
+              <div class="col-sm-10">
+                <input type="password" name="password_confirm" class="form-control"  placeholder="حداقل پنج کاراکتر" required pattern=".{5,}">
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">ثبت نام</button>
+              </div>
+
+
+            </p>
+</a>
+
+
+</div>
+{% endblock %}
+
+
+{% block footer %}
+
+<script >
+$(document).ready(function () {
+        $(".subtaskinput").fadeOut(0);
+        $('.fa-square-o').hover(function () {
+            $(this).addClass('fa-check-square-o');
+            $(this).removeClass('fa-square-o');
+        }, function () {
+            $(this).addClass('fa-square-o');
+            $(this).removeClass('fa-check-square-o');
+        });
+
+});
+
+function showsubtaskinput(elementid){
+  if ($('.btn-'+elementid).text() == '+') {
+    $('.subtask-'+elementid).fadeIn(250);
+    $('.subtask-'+elementid).focus();
+    $('.btn-'+elementid).text ('-');
+  }
+  else {
+    $('.subtask-'+elementid).fadeOut(250);
+    $('.btn-'+elementid).text ('+');
+  }
+  // دگمه رو عوض کنیم به منفی و اگر منفی رو زد المنت رو حذف کنیم
+  return 0;
+}
+</script>
+
+<script type="text/javascript">
+$(".alert").fadeTo(10000, 500).slideUp(500, function(){
+    $(".alert").slideUp(10000);
+});
+</script>
+{% endblock %}

@@ -1,0 +1,29 @@
+
+{% block context %}
+{% if form.errors  %}
+    <p class="error" >This is not a valid username </p>
+{% endif %}
+<form action="{% url 'login' %}"method="POST" >
+    {% csrf_token %}
+
+    <p>
+        {{ message }}
+
+
+    <p>ورود به صفحه شخصی</p>
+
+    </p>
+    <p>
+        <label>نام کاربری</label>
+        <input type="email" value="username"  name="user"/>
+    </p>
+    <p>
+        <label>پسورد</label>
+        <input type="password" name="pass" />
+    </p>
+    <p>
+
+        <input type="submit" name="register" />
+    </p>
+    {% endblock %}
+</form>

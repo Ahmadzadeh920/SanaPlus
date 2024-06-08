@@ -1,0 +1,115 @@
+<style type="text/css">
+
+    tr {border: 2px; border:#0f0f0f }
+</style>
+
+
+
+{% extends "template.html"%}
+{% load staticfiles %}
+
+{% block content %}
+
+
+<div class="row">
+
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Sana_Plus</h3>
+        </div>
+        <div class="panel-body">
+
+
+<p>
+         {% if user.is_authenticated  and user.is_staff and obj_apps%}
+            {% if massage%}
+                {{ massage }}
+            {% endif %}
+            <p>
+                <form  class="form-horizontal" method="POST" action="{% url 'ManageEvents' id_apps=obj_apps.id  %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="requestcode" value="True" />
+                    <input type="hidden" name="next" value="{{ next }}" />
+                   <label>نام Events</label> <input type="text" name="name_Events" >
+                    <br/>
+                    <label>شرح Events</label> <input type="text" name="descrip_Events" >
+                    <br/>
+                    <input type="submit" value="ثبت Events جدید" >
+
+                </form>
+
+            {% endif %}
+
+
+            </p>
+</a>
+
+
+</div>
+
+
+
+    </div>
+
+
+
+<h3>
+{% if Event_object and obj_apps %}
+
+        <table border="2" >
+        <tr  >
+                <td>نام Events</td>
+                <td>کد Events</td>
+                <td>توصیف Events</td>
+                <td>تاریخ اضافه کردن Events</td>
+                <td> درخواست آدرس  </td>
+                 <td> گزارش گیری  </td>
+        </tr>
+        {%  for event in Event_object %}
+                 <tr style="border-bottom: 2px">
+                    <td>{{ event.name }}</td>
+                     <td>{{ event.code }}</td>
+                     <td>{{ event.descrip }}</td>
+                     <td>{{ event.date_create_Events}}</td>
+                     <td width="90%"> <a  href={% url 'DeleteEvents'  apps_id=obj_apps.id     code_Events=event.code  %}> Delete</a> </td>
+                     <td width="90%"> <a  href={% url 'CreateUrls' apps_id=obj_apps.id  Events_id=event.id %}> در خواست urls </a> </td>
+                    <td width="90%"> <a  href={% url 'Render_Report' username=user.username  apps_code=obj_apps.token  code_Events=event.code  %}> گزارش گیری {{ event.code }} </a> </td>
+
+        </tr>
+
+
+        {% endfor %}
+
+
+
+
+
+
+        </table>
+
+
+
+
+
+
+
+{% endif %}
+{% if urls_input  %}
+    <h3>پارامتر src_str در فراخونی و ثبت داده</h3> <div class="active">http://localhost:8009/Events/<span> {{ urls_input }}</span> </div>
+    <h3>برای فراخوانی فایل جاوا اسکریپت </h3>
+    <div class="active">&lt script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js">&lt/script></div>
+    <div class="active">&lt script id="Sana" src="http://localhost:8009/Events/{{ urls_input }}events.js/>&lt/script> </div>
+{% endif %}
+
+
+
+
+    </div>
+
+
+{% endblock %}
+
+
+
+</html>

@@ -1,0 +1,130 @@
+{% extends "template.html"%}
+{% load staticfiles %}
+
+
+<style type="text/css">
+    g[class^='raphael-group-'][class$='-creditgroup'] {
+         display:none !important;
+    }
+</style>
+
+{% block content %}
+
+
+
+
+
+  {% if message %}
+  <div class="bs-callout bs-callout-info">
+    <h5>{{ message }}</h5>
+  </div>
+  {% endif %}
+
+
+
+<div class="row">
+
+    <div class="col-md-6" id="report">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Sana_Plus</h3>
+        </div>
+        <div class="panel-body">
+
+
+<p>
+{{ massage_logout }}
+
+</p>
+
+<p>
+         {% if user.is_authenticated  and user.is_staff and obj_apps and obj_events %}
+                 <p>{{ massage }}</p>
+                 <form  class="form-horizontal" method="POST" action="{% url 'form_Report' username=user.username  apps_code=obj_apps.token  code_Events=obj_events.code  %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="requestcode" value="True" />
+                    <input type="hidden" name="next" value="{{ next }}" />
+                    <label>تاریخ شروع گزارش گیری </label><input type="date" value="شروع گزارش" name="start_time"/><br/>
+                    <label>تاریخ اتمام گزارش گیری </label><input type="date" value="اتمام گزارش" name="end_time"/><br/>
+                    <label>بازده زمانی  </label><select name="interval">
+                        <option name="week" value="week">هفتگی</option>
+                        <option name="month" value="month">ماهیانه</option>
+                        <option name="day" value="day">روزانه</option>
+                    </select><br/>
+                    <input type="submit" value="گزارش گیری">
+                </form>
+             {% if report %}
+                        {%  if charts_reserve %}
+                            <div id="charts_reserve_container" >{{charts_reserve|safe}} <br/></div>
+                         {% else %}
+                            <a href="#" > شما داده ی رزرو در این بازه زمانی ندارید</a> <br/>
+                        {% endif %}
+                        {%  if charts_sell %}
+                            <div id="charts_sell_container" >{{charts_sell|safe }} </div> <br/>
+                         {% else %}
+                            <a href="#" > شما داده ی فروش در این بازه زمانی ندارید</a> <br/>
+                        {% endif %}
+                        {% if charts_Register_User %}
+                            <div id="charts_Register_User_container" >{{ charts_Register_User|safe }} </div> <br/>
+                         {% else %}
+                            <a href="#" > شما داده ی کاربر  در این بازه زمانی ندارید</a> <br/>
+                        {% endif %}
+
+                        {%  if charts_search_Product %}
+                            <div id="charts_Search_Product_container" >{{charts_search_Product|safe}}</div><br/>
+                         {% else %}
+                            <a href="#" > شما داده ی جستجوی محصولات در این بازه زمانی ندارید</a> <br/>
+                        {% endif %}
+                        {%  if charts_visited_Product %}
+                            <div id="charts_visted_product_container" >{{ charts_visited_Product|safe}} </div><br/>
+                         {% else %}
+                            <a href="#" > شما داده ی مشاهده محصولات در این بازه زمانی ندارید</a> <br/>
+                        {% endif %}
+                        {%  if charts_Events_js %}
+                            <div id="charts_Events_js_container" >{{charts_Events_js|safe}} </div><br/>
+                         {% else %}
+                            <a href="#" > شما داده ی در رویدادهای جاوا اسکریپتی در این بازه زمانی ندارید</a> <br/>
+                        {% endif %}
+                        {%  if charts_sell_reserve_both %}
+                            <div id="charts_sell_reserve_both_container" >{{charts_sell_reserve_both|safe}} </div><br/>
+                         {% else %}
+                            <a href="#" > شما داده ی که هم رزرو و فروش شده باشد ندارد در این بازه زمانی ندارید</a> <br/>
+                        {% endif %}
+
+              {% endif %}
+         {% endif %}
+
+
+            </p>
+</a>
+
+{% if id_detailes_chart %}
+    <div id="id_detailes_charts_container" >{{id_detailes_chart|safe}} </div><br/>
+{% endif %}
+</div>
+    <div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+{% block footer %}
+
+
+{% endblock %}

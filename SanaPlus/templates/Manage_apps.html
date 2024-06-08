@@ -1,0 +1,112 @@
+<style type="text/css">
+
+    tr {border: 2px; border:#0f0f0f }
+</style>
+
+
+
+{% extends "template.html"%}
+{% load staticfiles %}
+
+{% block content %}
+
+
+<div class="row">
+
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Sana_Plus</h3>
+        </div>
+        <div class="panel-body">
+
+
+<p>
+         {% if user.is_authenticated  and user.is_staff%}
+            {% if massage%}
+                {{ massage }}
+            {% endif %}
+            <p>
+                <form  class="form-horizontal" method="POST" action="{% url 'Create_Apps' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="requestcode" value="True" />
+                    <input type="hidden" name="next" value="{{ next }}" />
+                   <label>نام اپلیکیشن</label> <input type="text" name="name_apps" >
+                    <br/>
+                    <select name="type_apps">
+                        <option value="ios">ios</option>
+                        <option value="android">اندروید</option>
+                        <option value="web_sait">وب سایت</option>
+                        <option value="windows" selected>ویندوز</option>
+                    </select>
+                    <br/>
+                    <input type="submit" value="ثبت اپلیکیشن جدید" >
+
+                </form>
+
+            {% endif %}
+
+
+            </p>
+</a>
+
+
+</div>
+
+
+
+    </div>
+
+
+
+<div>
+{% if apps_object %}
+
+        <table border="2" >
+        <tr  >
+                <td>نام اپلیکیشن</td>
+                <td>توکن اپلیکیشن</td>
+                <td>نوع اپلیکیشن</td>
+                <td>تاریخ اضافه کردن اپلیکیشن</td>
+        </tr>
+        {%  for apps in apps_object %}
+
+                    <tr style="border-bottom: 2px">
+                            <td> <a href="{% url 'ManageEvents' id_apps=apps.id  %}" >  {{ apps.name }}  </a></td>
+                             <td>{{ apps.token }}</td>
+                             <td>{{ apps.type_apps.name }}</td>
+                             <td>{{ apps.date_create_apps}}</td>
+                            <td> <a href="{% url 'Delete_apps' app_id=apps.id  %}" >  Delete APPs </a></td>
+
+                    </tr>
+
+
+
+
+        {% endfor %}
+
+
+
+
+
+
+        </table>
+{% endif %}
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+</html>
