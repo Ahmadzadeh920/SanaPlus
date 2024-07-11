@@ -7,6 +7,11 @@
 <a href="https://www.postgresql.org" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/> </a>
 <a href="https://www.django-rest-framework.org/" target="_blank"> <img src="https://img.icons8.com/?size=100&id=79865&format=png&color=000000" alt="rest-framework" width="40" height="40"/> </a>
 
+<a href="https://www.nltk.org/" target="_blank"> <img src="https://github.com/user-attachments/assets/305be1d3-9e01-40a1-b10e-3b8f64deda26" alt="NLP" width="40" height="40"/> </a>
+
+
+
+
 </p>
 
 # SanaPlus 
@@ -31,6 +36,23 @@ This project is designed in three parts:
 •	Python/ Numpy/ SciPy / Tensorflow/
 •	Django
 •	Javascript/Jquery/ 
+
+# Structure Database
+<img src="data_structure.png" alt="Data_structure">
+
+# Clone the repo
+Clone this repo anywhere you want and move into the directory:
+```bash
+git clone https://github.com/Ahmadzadeh920/SanaPlus.git
+```
+
+# License
+MIT.
+
+
+# Bugs
+Feel free to let me know if something needs to be fixed. or even any features seems to be needed in this repo.
+
 
 
 
