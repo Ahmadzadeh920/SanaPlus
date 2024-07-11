@@ -1,12 +1,11 @@
 <div align="center">
-<h1 align="center">Farazan_Parvari_Project</h1>
+<h1 align="center">SanaPlus_Project</h1>
 <h3 align="center">Sample Project with base usage and deployment</h3>
 </div>
 <p align="center">
 <a href="https://www.python.org" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a>
 <a href="https://www.postgresql.org" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/> </a>
 <a href="https://www.django-rest-framework.org/" target="_blank"> <img src="https://img.icons8.com/?size=100&id=79865&format=png&color=000000" alt="rest-framework" width="40" height="40"/> </a>
-
 <a href="https://www.nltk.org/" target="_blank"> <img src="https://github.com/user-attachments/assets/305be1d3-9e01-40a1-b10e-3b8f64deda26" alt="NLP" width="40" height="40"/> </a>
 
 
