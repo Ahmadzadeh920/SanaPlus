@@ -37,7 +37,7 @@ This project is designed in three parts:
 •	Javascript/Jquery/ 
 
 # Structure Database
-<img src="../data_structure.png" alt="Data_structure">
+<img src="data_structure.png" alt="Data_structure">
 
 # Clone the repo
 Clone this repo anywhere you want and move into the directory:
