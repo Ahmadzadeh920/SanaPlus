@@ -32,8 +32,11 @@ This project is designed in three parts:
 
 # Reqiurements:
 •	HTML/CSS/Bootstrap template
+
 •	Python/ Numpy/ SciPy / Tensorflow/
+
 •	Django
+
 •	Javascript/Jquery/ 
 
 # Structure Database
