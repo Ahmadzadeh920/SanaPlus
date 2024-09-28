@@ -19,11 +19,18 @@
 Sana company is working in the field of data analytics module and creating web service. Before they launch this project.  I have helped them update and/or develop new projects and this project is only one case which allowed me to share with our customers. I was glad to help this company.
 
 # Why this application is formed :
-SanaPlus project is used for data analysis. With the help of data analysis, it is possible to influence the decision-making process of marketing and managers.
-This project is designed in three parts:
-• Management panel
-• Collect data using APIs
-• Information reporting
+The SanaPlus project is an innovative solution designed to enhance data analysis capabilities, empowering marketing teams and managers to make informed decisions based on actionable insights. This comprehensive project is structured into three key components to optimize the data management and reporting processes:
+
+## Management Panel:
+At the heart of the SanaPlus project lies a user-friendly management panel, providing an intuitive interface for users to navigate and access critical data analytics. This panel enables managers to visualize trends, monitor performance metrics, and effectively interpret data to drive strategic initiatives.
+
+## Data Collection using APIs:
+To facilitate robust data analysis, SanaPlus employs advanced API integrations to collect data from various sources. This seamless data retrieval process ensures that stakeholders have access to real-time information, enhancing their ability to analyze market trends, consumer behavior, and operational performance.
+
+## Information Reporting:
+The final component of the SanaPlus project focuses on delivering comprehensive information reporting. With customizable reports and visualizations, users can easily digest complex data sets, uncover insights, and communicate findings effectively to inform marketing strategies and operational decisions.
+
+Through its structured approach, the SanaPlus project not only streamlines data analysis but also plays a pivotal role in shaping the decision-making processes within organizations, ultimately fostering a data-driven culture in marketing and management.
 
 # value proposition:
 •	API generator for different application
