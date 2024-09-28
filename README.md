@@ -70,7 +70,7 @@ The combination of these three elements positions the SanaPlus project as an inn
 
 •	Python/ Numpy/ SciPy / Tensorflow/
 
-•	Django
+•	Django -Rest Framework API
 
 •	Javascript/Jquery/ 
 
