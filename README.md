@@ -74,7 +74,8 @@ The combination of these three elements positions the SanaPlus project as an inn
 
 •	Javascript/Jquery/ 
 
-# Structure Database
+# Some parts of Structure Database
+this company allowed me to share on Github small part of this structure database 
 <img src="data_structure.png" alt="Data_structure">
 
 # Clone the repo
